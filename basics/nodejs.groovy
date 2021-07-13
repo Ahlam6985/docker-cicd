@@ -1,6 +1,6 @@
 job('NodeJS example') { // Job NAME
     scm { // Configure Source control management 
-        git('git://github.com/Ahlam6985/docker-demo.git') {  node -> // is hudson.plugins.git.GitSCM
+        git('git://github.com/Ahlam6985/docker-cicd.git') {  node -> // is hudson.plugins.git.GitSCM
             node / gitConfigName('DSL User')
             node / gitConfigEmail('jenkins-dsl@domain.com')
         }
@@ -13,14 +13,7 @@ job('NodeJS example') { // Job NAME
                          // Manage Jenkins -> Configure Tools -> NodeJS Installations -> Name
     }
     steps { // what steps to take 
-       dockerBuildAndPublish {
-            repositoryName(ac/dc)
-            tag('${GIT_REVISION,length=9}')
-            registryCredentials('dockerhub')
-            forcePull(false)
-            forceTag(false)
-            createFingerprints(false)
-            skipDecorate()
+       shell("npm install")
         }
 
     }
