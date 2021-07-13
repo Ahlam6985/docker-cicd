@@ -9,7 +9,7 @@ job('NodeJS example') { // Job NAME
         scm('H/5 * * * *')
     }
     wrappers {
-        nodejs('NodeJS example') // this is the name of the NodeJS installation in 
+        nodejs('Nodejs') // this is the name of the NodeJS installation in 
                          // Manage Jenkins -> Configure Tools -> NodeJS Installations -> Name
     }
     steps { // what steps to take 
